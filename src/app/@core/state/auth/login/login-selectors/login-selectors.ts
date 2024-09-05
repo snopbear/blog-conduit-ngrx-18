@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ILoginState } from '../login-state/login-state';
+import { ILoginState } from 'src/app/@core/state/auth/login/login-state/login-state';
+
 export const loginFeatureSelector = createFeatureSelector<ILoginState>('login');
 
 // Selector to determine if submitting

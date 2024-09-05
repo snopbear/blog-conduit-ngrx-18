@@ -1,35 +1,22 @@
 import { select, Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { AsyncPipe, NgIf } from '@angular/common';
-
-
 
 import { IBackendError } from '@models/index';
-import { BackendErrorMessagesComponent } from 'src/app/@shared/components/backend-error-messages/backend-error-messages.component';
 import { loginAction } from 'src/app/@core/state/auth/login/login-actions/login-actions';
-import { loginIsSubmittingSelector, loginValidationErrorsSelector } from 'src/app/@core/state/auth/login/login-selectors/login-selectors';
-
+import {
+  loginIsSubmittingSelector,
+  loginValidationErrorsSelector,
+} from 'src/app/@core/state/auth/login/login-selectors/login-selectors';
+import loginComponentImports from './login.component.imports';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    AsyncPipe,
-    NgIf,
-    BackendErrorMessagesComponent,
-  ],
+  imports: [loginComponentImports],
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;

@@ -1,26 +1,18 @@
 import { select, Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { registerAction } from 'src/app/@core/state/auth/register/register-actions/register.actions';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { isSubmittingSelector, validationErrorsSelector } from 'src/app/@core/state/auth/register/register-selectors/register.selectors';
 import { IBackendError } from '@models/index';
-import { BackendErrorMessagesComponent } from 'src/app/@shared/components/backend-error-messages/backend-error-messages.component';
+import { isSubmittingSelector, validationErrorsSelector } from 'src/app/@core/state/auth/register/register-selectors/register.selectors';
+import { registerAction } from 'src/app/@core/state/auth/register/register-actions/register.actions';
+import registerComponentImports from './register.component.imports';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    AsyncPipe,
-    NgIf,
-    BackendErrorMessagesComponent,
-  ],
+  imports: [registerComponentImports],
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;

@@ -1,9 +1,9 @@
 // export * from './register/register-actions/register.actions';
-// export * from './register/register-actions-types/register-actions-types';
 // export * from './register/register-effects/register.effects';
 // export * from './register/register-reducers/register.reducers';
 // export * from './register/register-selectors/register.selectors';
 // export * from './register/register-state/register-state.interface';
+// export * from './register/register-actions-types/register-actions-types';
 
 
 

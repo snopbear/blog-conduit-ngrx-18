@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
-
 import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { AuthService } from '@services/module-services/auth/auth-service/auth.service';
-import { ICurrentUser } from '@models/index';
-import { HttpErrorResponse } from '@angular/common/http';
-import { LocalStorageService } from '@services/core-services/local-storage/local-storage.service';
 import { Router } from '@angular/router';
-import { loginAction, loginSuccessAction, loginFailureAction } from '../login-actions/login-actions';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService, LocalStorageService } from '@services/index';
+import { ICurrentUser } from '@models/index';
+
+import {
+  loginAction,
+  loginSuccessAction,
+  loginFailureAction,
+} from 'src/app/@core/state/auth/login/login-actions/login-actions';
 
 @Injectable()
 export class LoginEffect {
@@ -22,6 +25,7 @@ export class LoginEffect {
             return loginSuccessAction({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            debugger
             return of(
               loginFailureAction({ errors: errorResponse.error.errors })
             );

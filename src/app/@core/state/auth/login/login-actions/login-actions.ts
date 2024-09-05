@@ -1,7 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 import { ICurrentUser, ILoginRequest, IRegisterRequest } from '@models/index';
-import { IBackendError } from '@models/interfaces/backend-error/backend-error';
-import { LoginActionsType } from '../login-actions-types/login-actions-types';
+import { IBackendError } from '@models/index';
+
+import { LoginActionsType } from 'src/app/@core/state/auth/login/login-actions-types/login-actions-types';
 
 export const loginAction = createAction(
   LoginActionsType.LOGIN,

@@ -1,6 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { ILoginState } from '../login-state/login-state';
-import { loginAction, loginFailureAction, loginSuccessAction } from '../login-actions/login-actions';
+
+import { ILoginState } from 'src/app/@core/state/auth/login/login-state/login-state';
+import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
+} from 'src/app/@core/state/auth/login/login-actions/login-actions';
 
 
 const initialState: ILoginState = {

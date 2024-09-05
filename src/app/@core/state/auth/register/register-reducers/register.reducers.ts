@@ -1,6 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { registerAction, registerFailureAction, registerSuccessAction } from '../register-actions/register.actions';
-import { IRegisterState } from '../register-state/register-state.interface';
+import {
+  registerAction,
+  registerFailureAction,
+  registerSuccessAction,
+} from 'src/app/@core/state/auth/register/register-actions/register.actions';
+
+import { IRegisterState } from 'src/app/@core/state/auth/register/register-state/register-state.interface';
 
 const initialState: IRegisterState = {
   isSubmitting: false,

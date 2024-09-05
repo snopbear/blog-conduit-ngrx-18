@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "conduit-ngrx-18": {
+    "blog-conduit-ngrx-18": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/conduit-ngrx-18",
+            "outputPath": "dist/blog-conduit-ngrx-18",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "conduit-ngrx-18:build:production"
+              "buildTarget": "blog-conduit-ngrx-18:build:production"
             },
             "development": {
-              "buildTarget": "conduit-ngrx-18:build:development"
+              "buildTarget": "blog-conduit-ngrx-18:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "84ed9dd6-3bd0-4236-82e5-90cbf740acdc"
   }
 }

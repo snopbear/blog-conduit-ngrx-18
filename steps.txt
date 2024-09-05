@@ -1,0 +1,20 @@
+1. ng add @ngrx/store@latest
+2. ng add @ngrx/effects@latest
+3. ng add @ngrx/router-store@latest
+4. ng add @ngrx/entity@latest
+5. ng add @ngrx/data@latest
+6. ng add @ngrx/store-devtools@latest
+
+
+
+-------------------------------------
+Create Interface for state 
+Implement Interface for state with initial state
+Create actions types
+Create actions
+Create reducers
+Create effects 
+Create selectors 
+
+
+

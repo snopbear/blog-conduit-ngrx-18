@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'conduit-ngrx-18';
+  title = 'angular-folder-structure-base-v18';
 }

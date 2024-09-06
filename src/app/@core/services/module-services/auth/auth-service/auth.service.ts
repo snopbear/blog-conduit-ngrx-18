@@ -32,10 +32,10 @@ export class AuthService {
   }
 
 
-  // getUser() {
-  //   const url = `${environment.apiUrl}/user`;
-  //   return this.httpClient.get(url).pipe(map(this.extractUser));
-  // }
+  getUser():Observable<ICurrentUser> {
+    const url = `${environment.apiUrl}/user`;
+    return this.httpClient.get<IAuthResponse>(url).pipe(map(this.extractUser));
+  }
 
   // updateUser(data: UserInput): Observable<User> {
   //   const url = environment.apiUrl + '/user';

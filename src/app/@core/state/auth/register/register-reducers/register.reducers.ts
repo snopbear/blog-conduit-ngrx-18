@@ -5,27 +5,28 @@ import {
   registerSuccessAction,
 } from 'src/app/@core/state/auth/register/register-actions/register.actions';
 
-import { IRegisterState } from 'src/app/@core/state/auth/register/register-state/register-state.interface';
+import { IAuthState } from '../../auth-state/auth-state';
 
-const initialState: IRegisterState = {
+const initialState: IAuthState = {
   isSubmitting: false,
   currentUser: null,
   isLoggedIn: null,
   validationErrors: null,
+  isLoading: false
 };
 
 // reducer is the function that change our state some how
 
 const registerReducer = createReducer(
   initialState,
-  on(registerAction, (state: IRegisterState) => ({
+  on(registerAction, (state: IAuthState) => ({
     ...state,
     isSubmitting: true,
     validationErrors: null, //set in to null in case we submit
   })),
   on(
     registerSuccessAction,
-    (state, action): IRegisterState => ({
+    (state, action): IAuthState => ({
       ...state,
       isSubmitting: false,
       isLoggedIn: true, //set to true when registration success,
@@ -34,7 +35,7 @@ const registerReducer = createReducer(
   ),
   on(
     registerFailureAction,
-    (state, action): IRegisterState => ({
+    (state, action): IAuthState => ({
       ...state,
       isSubmitting: false,
       validationErrors: action.errors, //set error details if registration failed

@@ -6,40 +6,44 @@ import {
   loginSuccessAction,
 } from 'src/app/@core/state/auth/login/login-actions/login-actions';
 import { IAuthState } from '../../auth-state/auth-state';
-
+import {
+  getCurrentUserAction,
+  getCurrentUserFailureAction,
+  getCurrentUserSuccessAction,
+} from '../current-user-actions/current-user-actions';
 
 const initialState: IAuthState = {
   isSubmitting: false,
   currentUser: null,
   isLoggedIn: null,
+  isLoading: false,
   validationErrors: null,
-  isLoading: false
 };
 
 // reducer is the function that change our state some how
 
-const loginReducer = createReducer(
+const getCurrentUserReducer = createReducer(
   initialState,
-  on(loginAction, (state: IAuthState) => ({
+  on(getCurrentUserAction, (state: IAuthState) => ({
     ...state,
-    isSubmitting: true,
-    validationErrors: null, //set in to null in case we submit
+    isLoading: true,
   })),
   on(
-    loginSuccessAction,
+    getCurrentUserSuccessAction,
     (state, action): IAuthState => ({
       ...state,
-      isSubmitting: false,
+      isLoading: false,
       isLoggedIn: true, //set to true when registration success,
       currentUser: action.currentUser, //set user details
     })
   ),
   on(
-    loginFailureAction,
+    getCurrentUserFailureAction,
     (state, action): IAuthState => ({
       ...state,
-      isSubmitting: false,
-      validationErrors: action.errors, //set error details if registration failed
+      isLoading: false,
+      isLoggedIn: false,
+      currentUser: null,
     })
   )
 );
@@ -48,6 +52,6 @@ const loginReducer = createReducer(
 // which mean in dev process but it will not work in out build
 // so when we build angular this a head of time compilation
 
-export function LoginReducer(state: any, action: Action) {
-  return loginReducer(state, action);
+export function GetCurrentUserReducer(state: any, action: Action) {
+  return getCurrentUserReducer(state, action);
 }

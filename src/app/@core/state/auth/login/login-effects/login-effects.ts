@@ -18,14 +18,12 @@ export class LoginEffect {
     this.actions$.pipe(
       ofType(loginAction),
       switchMap(({ request }) => {
-        debugger;
         return this.authService.login(request).pipe(
           map((currentUser: ICurrentUser) => {
             this.localStorageService.setItem('accessToken', currentUser.token);
             return loginSuccessAction({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
-            debugger
             return of(
               loginFailureAction({ errors: errorResponse.error.errors })
             );
@@ -40,7 +38,6 @@ export class LoginEffect {
       this.actions$.pipe(
         ofType(loginSuccessAction),
         tap(() => {
-          debugger
           this.router.navigate(['/']);
         })
       ),

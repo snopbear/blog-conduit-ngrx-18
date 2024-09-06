@@ -1,8 +1,9 @@
-import { IBackendError, ICurrentUser } from '@models/index';
+import { IBackendError, ICurrentUser } from "@models/index";
 
-export interface IRegisterState {
+export interface IAuthState {
   isSubmitting: boolean;
   currentUser: ICurrentUser | null;
   isLoggedIn: boolean | null;
+  isLoading: boolean;
   validationErrors: IBackendError | null;
 }

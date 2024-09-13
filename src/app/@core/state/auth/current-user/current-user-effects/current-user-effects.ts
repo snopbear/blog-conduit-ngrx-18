@@ -7,7 +7,7 @@ import { ICurrentUser } from '@models/index';
 import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from '../current-user-actions/current-user-actions';
 
 @Injectable()
-export class GetCurrentUserEffect {
+export class CurrentUserEffect {
   getCurrentUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getCurrentUserAction),

@@ -52,6 +52,6 @@ const getCurrentUserReducer = createReducer(
 // which mean in dev process but it will not work in out build
 // so when we build angular this a head of time compilation
 
-export function GetCurrentUserReducer(state: any, action: Action) {
+export function CurrentUserReducer(state: any, action: Action) {
   return getCurrentUserReducer(state, action);
 }

@@ -7,7 +7,6 @@ export const AuthInterceptor = (
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<any>> => {
-  debugger
   const localStorageService = inject(LocalStorageService);
   const token = localStorageService.getItem('accessToken');
 
